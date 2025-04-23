@@ -1,11 +1,13 @@
-"use client";
 import { supabase } from "@/lib/supabaseClient";
 import { redirect } from "next/navigation";
 
+interface PageParmas {
+  slug: string;
+}
 export default async function RedirectPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<PageParmas>;
 }) {
   const { slug } = await params;
   const { data, error } = await supabase
@@ -13,8 +15,6 @@ export default async function RedirectPage({
     .select("url")
     .eq("slug", slug)
     .single();
-
-  console.log(slug);
 
   if (!data || error) {
     return <h1>404 Link not found</h1>;
