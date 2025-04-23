@@ -1,5 +1,4 @@
 import { supabase } from "@/lib/supabaseClient";
-import { randomBytes } from "crypto";
 
 export async function POST(req: Request) {
   const { url } = await req.json();
@@ -23,7 +22,7 @@ export async function POST(req: Request) {
   }
 
   return new Response(
-    JSON.stringify({ shortUrl: `${process.env.BASEURL}/${slug}` }),
+    JSON.stringify({ shortUrl: `${process.env.BASEURL}/${slug}`, data: data }),
     { status: 200 }
   );
 }
