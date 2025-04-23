@@ -11,7 +11,7 @@ export default function Home() {
     const res = await fetch("/api/shorten", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ url: URL }),
+      body: JSON.stringify({ url: url }),
     });
 
     const data = await res.json();
@@ -36,7 +36,7 @@ export default function Home() {
       </form>
       {shortUrl && (
         <p>
-          Shortened URL: <a href={`https://${shortUrl}`}></a>
+          Shortened URL: <a href={`https://${shortUrl}`}>https://${shortUrl}</a>
         </p>
       )}
     </div>
