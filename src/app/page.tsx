@@ -36,7 +36,7 @@ export default function Home() {
       </form>
       {shortUrl && (
         <p>
-          Shortened URL: <a href={`https://${shortUrl}`}>https://${shortUrl}</a>
+          Shortened URL: <a href={`https://${shortUrl}`}>https://{shortUrl}</a>
         </p>
       )}
     </div>
